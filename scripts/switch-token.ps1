@@ -1,4 +1,4 @@
-# ============================================================
+﻿# ============================================================
 # switch-token.ps1 — Claude Code API Token 切换脚本
 # 用法: powershell ./switch-token.ps1          → 切公司 (3000)
 #       powershell ./switch-token.ps1 me       → 切个人 (自己花钱)
@@ -101,4 +101,4 @@ if ($Target -eq "3000") {
 }
 Write-Host "============================================"
 Write-Host ""
-Write-Host "  ⚠ 请执行 /new 或重启 Claude Code 使新 Token 生效"
+Write-Host "  [!!] 请执行 /new 或重启 Claude Code 使新 Token 生效"
