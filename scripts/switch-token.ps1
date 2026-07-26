@@ -6,6 +6,15 @@
 # ============================================================
 param([string]$Target = "3000")
 
+# ============================================================
+# 配置区 — 以后换 IP/端口只改这里
+# ============================================================
+$CompanyIp   = "192.168.80.248"               # 公司内网服务器 IP
+$CompanyPort = "3000"                         # 公司内网端口
+$CompanyUrl  = "http://${CompanyIp}:${CompanyPort}"  # 公司 API 地址
+$CompanyRegex = [regex]::Escape($CompanyIp)   # 转义正则中的点号
+# ============================================================
+
 $ErrorActionPreference = "Stop"
 $ClaudeDir = "$env:USERPROFILE\.claude"
 $SettingsFile = "$ClaudeDir\settings.json"
@@ -20,7 +29,7 @@ if ($Target -ne "3000" -and $Target -ne "me") {
     exit 1
 }
 
-$TargetLabel = if ($Target -eq "3000") { "公司(3000)" } else { "自己" }
+$TargetLabel = if ($Target -eq "3000") { "公司($CompanyPort)" } else { "自己" }
 
 # ---- ① 读取当前 settings.json ----
 if (-not (Test-Path $SettingsFile)) {
@@ -31,10 +40,10 @@ $Current = Get-Content $SettingsFile -Raw -Encoding UTF8 | ConvertFrom-Json
 
 # 判断当前是公司还是个人
 $CurrentBaseUrl = $Current.env.ANTHROPIC_BASE_URL
-$CurrentType = if ($CurrentBaseUrl -match "192\.168\.80\.248") { "公司(3000)" } else { "自己" }
+$CurrentType = if ($CurrentBaseUrl -match $CompanyRegex) { "公司($CompanyPort)" } else { "自己" }
 
 Write-Host "============================================"
-Write-Host "  当前: token-$($CurrentType -replace '\(3000\)','')  ($CurrentType)"
+Write-Host "  当前: token-$($CurrentType -replace "\($CompanyPort\)",'')  ($CurrentType)"
 Write-Host "  目标: token-$Target"
 Write-Host "============================================"
 
@@ -63,9 +72,9 @@ Write-Host "[同步] 合并后配置 -> $TargetBackup"
 # ---- ⑤ 如果是切 me（自己），检测公司通不通 ----
 if ($Target -eq "me") {
     Write-Host ""
-    Write-Host "[检测] 探测公司服务器 192.168.80.248:3000 ..."
+    Write-Host "[检测] 探测公司服务器 ${CompanyUrl} ..."
     try {
-        $response = Invoke-WebRequest -Uri "http://192.168.80.248:3000" -TimeoutSec 3 -UseBasicParsing -ErrorAction Stop
+        $response = Invoke-WebRequest -Uri $CompanyUrl -TimeoutSec 3 -UseBasicParsing -ErrorAction Stop
         Write-Host "[结果] 公司服务器可达 (HTTP $($response.StatusCode))"
         Write-Host ""
         Write-Host "  token-3000 还能用（免费），你确定要切 token-me（自己花钱）？"
