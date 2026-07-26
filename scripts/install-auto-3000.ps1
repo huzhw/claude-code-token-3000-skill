@@ -36,9 +36,6 @@ $Settings = New-ScheduledTaskSettingsSet `
     -AllowStartIfOnBatteries `
     -DontStopIfGoingOnBatteries `
     -StartWhenAvailable `
-    -RestartCount 2 `
-    -RestartInterval (New-TimeSpan -Minutes 1) `
-    -DisableHardLimit `
     -ExecutionTimeLimit (New-TimeSpan -Minutes 2) `
     -Hidden
 
