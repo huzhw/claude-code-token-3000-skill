@@ -24,6 +24,14 @@ Claude Code API 一键切换：token-3000（公司免费）↔ token-me（自己
 git clone https://github.com/huzhw/token-3000-skill.git ~/.claude/skills/token-3000
 ```
 
+## 相关技能
+
+- [git-commit](https://github.com/huzhw/git-commit-skill)：Git 提交规范
+- [coding-rules](https://github.com/huzhw/coding-rules)：AI 编码协作规范
+- [reread-claude-md](https://github.com/huzhw/reread-claude-md-skill)：重新加载 CLAUDE.md 规则
+- [daily-record](https://github.com/huzhw/daily-record-skill)：日报记录
+- [daily-merge](https://github.com/huzhw/daily-merge-skill)：日报合并
+
 ## 依赖
 
 - PowerShell 5.1+
