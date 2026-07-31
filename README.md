@@ -95,6 +95,15 @@ git clone https://github.com/huzhw/token-3000-skill.git ~/.claude/skills/token-3
 - PowerShell 5.1+
 - `settings - 公司.json` 和 `settings - 自己.json` 须存在于 `~\.claude\`
 
+## 相关仓库
+
+- [coding-rules](https://github.com/huzhw/coding-rules) — AI 编码协作规范
+- [git-commit](https://github.com/huzhw/git-commit-skill) — Git 提交规范
+- [daily-record](https://github.com/huzhw/daily-record-skill) — 日报需求记录
+- [daily-merge](https://github.com/huzhw/daily-merge-skill) — 日报 Excel 合并
+- [reread-claude-md](https://github.com/huzhw/reread-claude-md-skill) — CLAUDE.md 规则重载
+- [service-manager](https://github.com/huzhw/service-manager) — 桌面服务管理工具
+
 ## 许可
 
 MIT
