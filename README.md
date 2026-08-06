@@ -10,6 +10,7 @@ Claude Code API 一键切换：token-3000（公司免费）↔ token-me（自己
 - [daily-record](https://github.com/huzhw/daily-record-skill)：日报记录
 - [daily-merge](https://github.com/huzhw/daily-merge-skill)：日报合并
 - [service-manager](https://github.com/huzhw/service-manager)：桌面服务管理工具
+- [code-check](https://github.com/huzhw/code-check-skill)：增量代码隐患检查
 
 ---
 
