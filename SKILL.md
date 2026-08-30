@@ -1,8 +1,9 @@
 ---
-name: token-3000
-description: 切换 Claude Code API Token：token-3000（公司内网 192.168.80.248:3000，免费）和 token-me（个人 DeepSeek，自己花钱）。触发词：token-3000、token-me、切3000、切自己、切公司、切免费、切付费、切换token、3000token、我的token。
+name: claude-code-token-3000
+description: 本技能专用于 Claude Code：切换 API Token——token-3000（公司内网 192.168.80.248:3000，免费）和 token-me（个人 DeepSeek，自己花钱）。触发词：token-3000、token-me、切3000、切自己、切公司、切免费、切付费、切换token、3000token、我的token。
 author: 胡志伟
 motto: "token-3000 白嫖，token-me 花自己的钱——切换只需一条命令。"
+disable-model-invocation: false
 ---
 
 # 切换 API Token
@@ -26,7 +27,7 @@ motto: "token-3000 白嫖，token-me 花自己的钱——切换只需一条命�
 
 2. 执行脚本：
    ```
-   powershell -ExecutionPolicy Bypass -File "$env:USERPROFILE\.claude\skills\token-3000\scripts\switch-token.ps1" [3000|me]
+   powershell -ExecutionPolicy Bypass -File "$env:USERPROFILE\.claude\skills\claude-code-token-3000\scripts\switch-token.ps1" [3000|me]
    ```
 
 3. 脚本自动：
