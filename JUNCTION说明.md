@@ -8,6 +8,8 @@
 |----|------|
 | 全局路径（junction，Claude Code） | `C:\Users\Administrator\.claude\skills\claude-code-token-3000` |
 | 全局路径（junction，DSH） | `C:\Users\Administrator\.dsh\skills\claude-code-token-3000` |
+| 全局路径（junction，Codex） | `C:\Users\Administrator\.codex\skills\claude-code-token-3000` |
+| 全局路径（junction，Zcode） | `C:\Users\Administrator\.zcode\skills\claude-code-token-3000` |
 | 实际目录（F 仓库） | `F:\idea-workspase-skills\claude-code-token-3000` |
 | 更名记录 | 原 `token-3000`，2026-08-28 更名为 `claude-code-token-3000`（并移除开机自启功能） |
 
@@ -22,6 +24,8 @@
 ```bash
 cmd /c dir "C:\Users\Administrator\.claude\skills" | findstr claude-code-token-3000
 cmd /c dir "C:\Users\Administrator\.dsh\skills"    | findstr claude-code-token-3000
+cmd /c dir "C:\Users\Administrator\.codex\skills" | findstr claude-code-token-3000
+cmd /c dir "C:\Users\Administrator\.zcode\skills" | findstr claude-code-token-3000
 ```
 
 正常应显示 `<JUNCTION>  ...  claude-code-token-3000`。
@@ -31,6 +35,8 @@ cmd /c dir "C:\Users\Administrator\.dsh\skills"    | findstr claude-code-token-3
 ```bat
 rd "C:\Users\Administrator\.claude\skills\claude-code-token-3000"
 rd "C:\Users\Administrator\.dsh\skills\claude-code-token-3000"
+rd "C:\Users\Administrator\.codex\skills\claude-code-token-3000"
+rd "C:\Users\Administrator\.zcode\skills\claude-code-token-3000"
 ```
 
 > 注意：`rd` 不要加 `/s`，否则可能递归进 F 源目录。删除 junction 只删链接，不删 F 源目录。
